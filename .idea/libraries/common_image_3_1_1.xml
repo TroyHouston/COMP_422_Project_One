@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="common-image-3.1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/common-image-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/common-io-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/common-lang-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/imageio-core-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/imageio-metadata-3.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
