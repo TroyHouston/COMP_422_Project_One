@@ -1,12 +1,16 @@
 package project;
 
 
+import ij.ImagePlus;
+
 import javax.imageio.ImageIO;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static ij.IJ.openImage;
 
 /**
  * Created by troyr on 8/1/2015.

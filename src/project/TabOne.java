@@ -1,5 +1,6 @@
 package project;
 
+import ij.ImagePlus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
@@ -21,14 +22,21 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static ij.IJ.openImage;
+
 /**
  * Created by troyr on 8/7/2015.
  */
 public class TabOne extends  GridPane{
 
     String currentImage1;
+    ImageView beforeImage;
+    ImageView afterImage;
+    Stage primaryStage;
 
-    public TabOne(String imageFile, Stage primaryStage) {
+    public TabOne(String imageFile, Stage primaryStage2) {
+
+    	this.primaryStage = primaryStage2;
 
         this.currentImage1 = imageFile;
         // Create grid layout
@@ -71,7 +79,7 @@ public class TabOne extends  GridPane{
         hbO.getChildren().add(original);
         hbO.setAlignment(Pos.CENTER);
         this.add(hbO, 1, 2);
-        ImageView beforeImage = new ImageView();
+        beforeImage = new ImageView();
         HBox hbOI = new HBox(0);
         hbOI.getChildren().add(beforeImage);
         hbOI.setAlignment(Pos.TOP_CENTER);
@@ -84,7 +92,7 @@ public class TabOne extends  GridPane{
         hbA.getChildren().add(altered);
         hbA.setAlignment(Pos.CENTER);
         this.add(hbA, 2, 2);
-        ImageView afterImage = new ImageView();
+        afterImage = new ImageView();
         HBox hbAI = new HBox(0);
         hbAI.getChildren().add(afterImage);
         hbAI.setAlignment(Pos.TOP_CENTER);
@@ -140,6 +148,7 @@ public class TabOne extends  GridPane{
                     BufferedImage tempTifInput = null;
                     try {
                         tempTifInput = ImageIO.read(new File("assets/" +group.getSelectedToggle().getUserData().toString()));
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

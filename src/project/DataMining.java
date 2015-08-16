@@ -50,12 +50,19 @@ public class DataMining {
      */
 
     private J48 tree;
-    public String results;
+    private String results = null;
+    private String matrix = null;
 
     public DataMining() {
 
+    }
 
+    public String getMatrix() {
+    	return matrix;
+    }
 
+    public String getResults() {
+    	return results;
     }
 
     public String getGraph() {
@@ -70,8 +77,8 @@ public class DataMining {
 
     public void trainJ48Classifier() {
 
-        csvToArff("output\\trainingData.csv", "output\\trainingData.arff");
-        csvToArff("output\\testData.csv", "output\\testData.arff");
+        //csvToArff("output/trainingData.csv", "output/trainingData.arff");
+        //csvToArff("output/testData.csv", "output/testData.arff");
 
         DataSource testData = null;
         DataSource trainingData = null;
@@ -79,8 +86,8 @@ public class DataMining {
         // Unpruned tree
         options[0] = "-U";
         try {
-            testData = new DataSource("output\\testData.arff");
-            trainingData = new DataSource("output\\trainingData.arff");
+            testData = new DataSource("output/mfeat/testData.csv");
+            trainingData = new DataSource("output/mfeat/trainingData.csv");
             Instances test = testData.getDataSet();
             Instances train = trainingData.getDataSet();
             test.setClassIndex(0);
@@ -105,7 +112,7 @@ public class DataMining {
             Evaluation eval = new Evaluation(train);
             eval.evaluateModel(tree, test);
             results = eval.toSummaryString("\nResults\n======\n", false);
-            System.out.println(eval.toSummaryString("\nResults\n======\n", false));
+            matrix = eval.toMatrixString("Confusion Matrix");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -160,9 +167,9 @@ public class DataMining {
         }
 
         // Create blank file
-        File allData = new File("output\\allData.csv");
-        File testData = new File("output\\testData.csv");
-        File trainingData = new File("output\\trainingData.csv");
+        File allData = new File("output/mfeat/allData.csv");
+        File testData = new File("output/mfeat/testData.csv");
+        File trainingData = new File("output/mfeat/trainingData.csv");
         try {
             allWriter = new PrintWriter(allData);
             testWriter = new PrintWriter(testData);
@@ -306,7 +313,7 @@ public class DataMining {
      */
     private void createReader(int bool, String file, ArrayList<BufferedReader> readers) throws FileNotFoundException {
         if (bool == 1)
-            readers.add(new BufferedReader(new FileReader("assets\\mfeat-digits\\mfeat-" + file)));
+            readers.add(new BufferedReader(new FileReader("assets/mfeat-digits/mfeat-" + file)));
     }
 
 

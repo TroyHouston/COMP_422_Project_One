@@ -26,6 +26,8 @@ import java.io.IOException;
 public class TabTwo extends GridPane {
 
     String currentImage2;
+    Slider tSlider;
+    ImageView afterImage;
 
     public TabTwo(String imagefile, Stage primaryStage) {
 
@@ -86,7 +88,7 @@ public class TabTwo extends GridPane {
         hbA.getChildren().add(altered);
         hbA.setAlignment(Pos.CENTER);
         this.add(hbA, 2, 2);
-        ImageView afterImage = new ImageView();
+        afterImage = new ImageView();
         HBox hbAI = new HBox(0);
         hbAI.getChildren().add(afterImage);
         hbAI.setAlignment(Pos.TOP_CENTER);
@@ -161,7 +163,7 @@ public class TabTwo extends GridPane {
         tLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
         functionsBox.getChildren().add(tLabel);
 
-        Slider tSlider = new Slider(35, 255, 90);
+        tSlider = new Slider(35, 255, 90);
         tSlider.setOrientation(Orientation.VERTICAL);
         tSlider.setShowTickLabels(true);
         tSlider.setMinorTickCount(5);

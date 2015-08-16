@@ -60,7 +60,7 @@ public class UserInterface {
 
         Tab tab3 = new Tab();
         tab3.setText("Section 2.2");
-        tab3.setContent(null);
+        tab3.setContent(new TabThree(primaryStage));
         tab3.setClosable(false);
 
         Tab tab4 = new Tab();
